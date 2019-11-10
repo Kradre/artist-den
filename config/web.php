@@ -65,6 +65,11 @@ $config = [
         ],
         'user' => [
             'class' => 'dektrium\user\Module',
+            'enableConfirmation' => false,
+            'enableUnconfirmedLogin' => true,
+            'enablePasswordRecovery' => false, /** TODO: Recovery through key */
+            'enableAccountDelete' => true,
+            'urlPrefix' => 'auth'
         ],
         'rbac' => 'dektrium\rbac\RbacWebModule',
     ],
