@@ -40,6 +40,15 @@ $config = [
         ],
     ],
     */
+    'modules' => [
+        'hub' => [
+            'class' => 'app\modules\hub\HubConnector',
+        ],
+        'user' => [
+            'class' => 'dektrium\user\Module',
+        ],
+        'rbac' => 'dektrium\rbac\RbacWebModule',
+    ],
 ];
 
 if (YII_ENV_DEV) {

@@ -63,6 +63,10 @@ $config = [
         'hub' => [
             'class' => 'app\modules\hub\HubConnector',
         ],
+        'user' => [
+            'class' => 'dektrium\user\Module',
+        ],
+        'rbac' => 'dektrium\rbac\RbacWebModule',
     ],
     'params' => $params,
 ];

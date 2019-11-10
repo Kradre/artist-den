@@ -5,15 +5,15 @@ namespace app\modules\hub\controllers;
 use yii\web\Controller;
 
 /**
- * Default controller for the `hub` module
+ * Sync controller for the `hub` module
  */
-class DefaultController extends Controller
+class SyncController extends Controller
 {
     /**
      * Renders the index view for the module
      * @return string
      */
-    public function actionIndex()
+    public function actionInit()
     {
         return $this->render('index');
     }
