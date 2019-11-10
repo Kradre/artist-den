@@ -15,16 +15,13 @@ $navBar = [
 ];
 
 if (Yii::$app->user->isGuest) {
-    $navBar[] = ['label' => 'Login', 'url' => ['/site/login']];
+    $navBar[] = ['label' => 'Signup', 'url' => ['/auth/registration/register']];
+    $navBar[] = ['label' => 'Login', 'url' => ['/auth/login']];
 } else {
-    $nevBar[] = '<li>'
-        . Html::beginForm(['/site/logout'], 'post')
-        . Html::submitButton(
-            'Logout (' . Yii::$app->user->identity->email . ')',
-            ['class' => 'btn btn-link logout']
-        )
-        . Html::endForm()
-        . '</li>';
+    if (Yii::$app->user->can('admin')) {
+        $navBar[] = ['label' => 'Users', 'url' => ['/user/admin/index']];
+    }
+    $navBar[] = ['label' => 'Logout', 'url' => ['/auth/logout']];
 }
 
 AppAsset::register($this);

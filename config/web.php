@@ -20,10 +20,6 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -51,12 +47,6 @@ $config = [
             'rules' => [
             ],
         ],
-
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-            // uncomment if you want to cache RBAC items hierarchy
-            // 'cache' => 'cache',
-        ],
     ],
     /** TODO: Connector to the main hub */
     'modules' => [
@@ -69,7 +59,8 @@ $config = [
             'enableUnconfirmedLogin' => true,
             'enablePasswordRecovery' => false, /** TODO: Recovery through key */
             'enableAccountDelete' => true,
-            'urlPrefix' => 'auth'
+            'urlPrefix' => 'auth',
+            'admins' => ['admin']
         ],
         'rbac' => 'dektrium\rbac\RbacWebModule',
     ],
