@@ -1,16 +1,16 @@
 <?php
 
-namespace app\modules\hub_connector;
+namespace app\modules\hub;
 
 /**
- * hub_connector module definition class
+ * hub module definition class
  */
 class HubConnector extends \yii\base\Module
 {
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'app\modules\hub_connector\controllers';
+    public $controllerNamespace = 'app\modules\hub\controllers';
 
     /**
      * {@inheritdoc}

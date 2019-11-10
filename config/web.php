@@ -17,12 +17,6 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '3uSEXH3XTA7KeLg1yvsUnz-_h9UGa0pQ',
         ],
-        /** TODO: Connector to the main hub */
-//        'modules' => [
-//            'hub_connector' => [
-//                'class' => 'app\modules\hub_connector\HubConnector',
-//            ],
-//        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -62,6 +56,12 @@ $config = [
             'class' => 'yii\rbac\DbManager',
             // uncomment if you want to cache RBAC items hierarchy
             // 'cache' => 'cache',
+        ],
+    ],
+    /** TODO: Connector to the main hub */
+    'modules' => [
+        'hub' => [
+            'class' => 'app\modules\hub\HubConnector',
         ],
     ],
     'params' => $params,

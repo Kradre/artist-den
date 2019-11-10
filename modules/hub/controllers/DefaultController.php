@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\hub_connector\controllers;
+namespace app\modules\hub\controllers;
 
 use yii\web\Controller;
 
 /**
- * Default controller for the `hub_connector` module
+ * Default controller for the `hub` module
  */
 class DefaultController extends Controller
 {
