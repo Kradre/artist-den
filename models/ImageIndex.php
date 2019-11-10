@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use dektrium\user\models\User;
+use mohorev\file\UploadBehavior;
 use Yii;
 
 /**
@@ -29,15 +31,14 @@ class ImageIndex extends \yii\db\ActiveRecord
     {
         return [
             [
-                'class' => '\yiidreamteam\upload\ImageUploadBehavior',
+                'class' => UploadBehavior::className(),
                 'attribute' => 'image_src',
+                'scenarios' => ['insert', 'update'],
+                'path' => '@webroot/images/full/{id}',
+                'url' => '@web/images/full/{id}',
                 'thumbs' => [
-                    'thumb' => ['width' => 400, 'height' => 300],
+                    'thumb' => ['width' => 400, 'quality' => 90],
                 ],
-                'filePath' => '@webroot/images/full/[[pk]].[[extension]]',
-                'fileUrl' => '/images/full/[[pk]].[[extension]]',
-                'thumbPath' => '@webroot/images/thumbnail/image_[[profile]]_[[pk]].[[extension]]',
-                'thumbUrl' => '/images/thumbnail/image_[[profile]]_[[pk]].[[extension]]',
             ],
         ];
     }
@@ -48,6 +49,7 @@ class ImageIndex extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            ['image_src', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['insert', 'update']],
             [['user_id', 'image_name', 'image_src'], 'required'],
             [['user_id'], 'integer'],
             [['image_description'], 'string'],
